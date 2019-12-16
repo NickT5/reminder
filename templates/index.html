@@ -1,9 +1,22 @@
-{% extends "layout.html" %}
+{% extends "bootstrap/base.html" %}
 
 {% block title %}Index{% endblock %}
+{% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">{% endblock %}
 
 {% block body %}
     <h1>To do platform</h1>
+
+    <table>
+        <tr>
+            <td colspan="4">Add task</td>
+        </tr>
+        <tr>
+            <th>Task</th>
+            <th>Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </table>
 
     <form action="/tasks" method="post">
         <input type="text" name="task" placeholder="Task">

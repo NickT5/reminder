@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+    <h1>To do platform</h1>
+
+    <form action="/tasks" method="post">
+        <input type="text" name="task" placeholder="Task">
+        <input type="submit" value="Add task">
+    </form>
+{% endblock %}

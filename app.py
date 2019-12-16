@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 
 # Configure app
 app = Flask(__name__)
@@ -15,4 +15,3 @@ def index():
 @app.route("/tasks", methods=["POST"])
 def task():
     return render_template("tasks.html", tasks=tasks)
-

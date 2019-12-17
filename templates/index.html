@@ -8,34 +8,45 @@
 {% endblock %}
 
 {% block body %}
-    <h1>To do platform</h1>
+    <div class="task_manager container justify-content-center">
+        <div class="row text-center">
+            <div class="col">
+               <h1>To do platform</h1>
+            </div>
+        </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <td colspan="5"><a class="btn btn-primary" href="/add_task">Add new task</a></td>
-            </tr>
-        </thead>
+        <div class="row text-center">
+            <div class="col">
+                <a class="btn btn-primary my_button" href="/add_task">Add new task</a>
+            </div>
+        </div>
 
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Task</th>
-                <th>Date</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- todo ifelse to check if there are no tasks-->
-            {% for task in all_tasks %}
-            <tr>
-                <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
-                <td><a href="/edit_task?id={{task.id}}" id="edit_{{task.id}}"><i class="fa fa-edit fa-2x"></i></a></td>
-                <td><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="fa fa-trash fa-2x"></i></a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Task</th>
+                                <th>Date</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- todo ifelse to check if there are no tasks-->
+                            {% for task in all_tasks %}
+                            <tr>
+                                <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
+                                <td><a href="/edit_task?id={{task.id}}" id="edit_{{task.id}}"><i class="fa fa-edit fa-2x"></i></a></td>
+                                <td><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="fa fa-trash fa-2x"></i></a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -15,16 +15,6 @@ class Task(db.Model):
     text = db.Column(db.String(255), nullable=False)
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
-    # todo add(self), edit(self), delete(self)
-    def add(self, text):
-        pass
-
-    def edit(self, id):
-        pass
-
-    def delete(self, id):
-        pass
-
     def __repr__(self):
         return f"Task('{self.id}', '{self.text}')"
 
@@ -44,6 +34,7 @@ def index():
 def add_task():
     return render_template("add_task.html")
 
+
 @app.route("/add_task_to_db", methods=["POST"])
 def add_task_to_db():
     task_text = request.form.get('task_text')
@@ -54,9 +45,19 @@ def add_task_to_db():
 
     return redirect(url_for('index'))
 
+
 @app.route("/edit_task")
 def edit_task():
-    task_id = request.args.get('')
+    # todo
+    pass
+
+
+@app.route("/delete_task")
+def delete_task():
+    id = request.args.get('id')
+    Task.query.filter_by(id=id).delete()
+    db.session.commit()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)

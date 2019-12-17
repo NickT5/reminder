@@ -31,8 +31,8 @@
             {% for task in all_tasks %}
             <tr>
                 <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
-                <td><a href="/edit_task" id="edit_{{task.id}}"><i class="fa fa-edit fa-2x"></i></a></td>
-                <td><a href="#" id="del_{{task.id}}"><i class="fa fa-trash fa-2x"></i></a></td>
+                <td><a href="/edit_task?id={{task.id}}" id="edit_{{task.id}}"><i class="fa fa-edit fa-2x"></i></a></td>
+                <td><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="fa fa-trash fa-2x"></i></a></td>
             </tr>
             {% endfor %}
         </tbody>

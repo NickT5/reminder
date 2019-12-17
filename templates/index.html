@@ -1,25 +1,41 @@
 {% extends "bootstrap/base.html" %}
 
 {% block title %}Index{% endblock %}
-{% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">{% endblock %}
+{% block styles %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
 
 {% block body %}
     <h1>To do platform</h1>
 
-    <table>
-        <tr>
-            <td colspan="4">Add task</td>
-        </tr>
-        <tr>
-            <th>Task</th>
-            <th>Date</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
+    <table class="table">
+        <thead>
+            <tr>
+                <td colspan="5"><a class="btn btn-primary" href="/add_task">Add new task</a></td>
+            </tr>
+        </thead>
+
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Task</th>
+                <th>Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- todo ifelse to check if there are no tasks-->
+            {% for task in all_tasks %}
+            <tr>
+                <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
+                <td><a href="/edit_task" id="edit_{{task.id}}"><i class="fa fa-edit fa-2x"></i></a></td>
+                <td><a href="#" id="del_{{task.id}}"><i class="fa fa-trash fa-2x"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 
-    <form action="/tasks" method="post">
-        <input type="text" name="task" placeholder="Task">
-        <input type="submit" value="Add task">
-    </form>
 {% endblock %}

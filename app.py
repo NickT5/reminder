@@ -1,23 +1,62 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 # Configure app
 app = Flask(__name__)
 Bootstrap(app)
+db = SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+
+
+class Task(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(255), nullable=False)
+    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    # todo add(self), edit(self), delete(self)
+    def add(self, text):
+        pass
+
+    def edit(self, id):
+        pass
+
+    def delete(self, id):
+        pass
+
+    def __repr__(self):
+        return f"Task('{self.id}', '{self.text}')"
+
 
 # All tasks
-tasks = ["dishes", "fitness"]
+all_tasks = []
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    # Get all tasks from the database.
+    all_tasks = Task.query.all()
+    return render_template("index.html", all_tasks=all_tasks)
 
 
-@app.route("/tasks", methods=["POST"])
-def task():
-    return render_template("tasks.html", tasks=tasks)
+@app.route("/add_task")
+def add_task():
+    return render_template("add_task.html")
 
+@app.route("/add_task_to_db", methods=["POST"])
+def add_task_to_db():
+    task_text = request.form.get('task_text')
+    new_task = Task(text=task_text)
+    db.session.add(new_task)
+    db.session.commit()
+    print(new_task)
+
+    return redirect(url_for('index'))
+
+@app.route("/edit_task")
+def edit_task():
+    task_id = request.args.get('')
 
 if __name__ == '__main__':
     app.run(debug=True)

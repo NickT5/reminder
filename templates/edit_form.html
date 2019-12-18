@@ -1,0 +1,20 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Edit task{% endblock %}
+{% block styles %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+
+
+{% block body %}
+    <h1>Edit task #{{ task.id }}</h1>
+
+    <form action="{{url_for('edit_task')}}" method="post">
+        <input type="hidden" name="task_id" value="{{ task.id }}">
+        <textarea name="task_text" class="form-control" rows="2">{{ task.text }}</textarea>
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+{% endblock %}

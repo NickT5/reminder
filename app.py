@@ -46,11 +46,23 @@ def add_task_to_db():
     return redirect(url_for('index'))
 
 
-@app.route("/edit_task")
-def edit_task():
-    # todo
-    pass
+@app.route("/edit_form")
+def edit_form():
+    task_id = request.args.get('id')
+    task = Task.query.filter_by(id=task_id).first()
+    return render_template("edit_form.html", task=task)
 
+
+@app.route("/edit_task", methods=["POST"])
+def edit_task():
+    task_id = request.form.get('task_id')
+    task_text = request.form.get('task_text')
+
+    task = Task.query.filter_by(id=task_id).first()
+    task.text = task_text
+    db.session.commit()
+
+    return redirect(url_for('index'))
 
 @app.route("/delete_task")
 def delete_task():
@@ -58,6 +70,7 @@ def delete_task():
     Task.query.filter_by(id=id).delete()
     db.session.commit()
     return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

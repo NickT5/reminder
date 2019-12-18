@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3c2b682b-9dbc-47a5-bbda-d9af5d8adfda" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/edit_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edit_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/add_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

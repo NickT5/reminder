@@ -7,6 +7,7 @@ from datetime import datetime
 app = Flask(__name__)
 Bootstrap(app)
 db = SQLAlchemy(app)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
 
@@ -19,10 +20,6 @@ class Task(db.Model):
         return f"Task('{self.id}', '{self.text}')"
 
 
-# All tasks
-all_tasks = []
-
-
 @app.route("/", methods=["GET", "POST"])
 def index():
     # Get all tasks from the database.
@@ -30,13 +27,13 @@ def index():
     return render_template("index.html", all_tasks=all_tasks)
 
 
-@app.route("/add_task")
+@app.route("/add_form")
+def add_form():
+    return render_template("add_form.html")
+
+
+@app.route("/add_task", methods=["POST"])
 def add_task():
-    return render_template("add_task.html")
-
-
-@app.route("/add_task_to_db", methods=["POST"])
-def add_task_to_db():
     task_text = request.form.get('task_text')
     new_task = Task(text=task_text)
     db.session.add(new_task)
@@ -64,10 +61,11 @@ def edit_task():
 
     return redirect(url_for('index'))
 
+
 @app.route("/delete_task")
 def delete_task():
-    id = request.args.get('id')
-    Task.query.filter_by(id=id).delete()
+    task_id = request.args.get('id')
+    Task.query.filter_by(id=task_id).delete()
     db.session.commit()
     return redirect(url_for('index'))
 

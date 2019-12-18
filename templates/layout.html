@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="initial-scale=1, width=device-width">
-    <meta charset="UTF-8">
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon_blue.ico') }}">
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>{% block title %} {% endblock %}</title>
-</head>
-<body>
-    {% block body %} {% endblock %}
-</body>
-</html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}

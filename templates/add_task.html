@@ -1,14 +1,4 @@
-{% extends "bootstrap/base.html" %}
-
-{% block title %}Add task{% endblock %}
-{% block styles %}
-{{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-{% endblock %}
-
-
+{% extends "layout.html" %}
 
 {% block body %}
     <div class="container">
@@ -18,8 +8,7 @@
             <div class="form-group">
                 <textarea name="task_text" class="form-control" rows="2" placeholder="Max 255 characters"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary my_button">Add</button>
         </form>
     </div>
-
 {% endblock %}

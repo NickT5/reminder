@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3c2b682b-9dbc-47a5-bbda-d9af5d8adfda" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/add_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edit_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edit_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,10 +73,10 @@
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-536.-1080.1920.1040@-536.-1080.1920.1040" timestamp="1576660237475" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-536.-1080.1920.1040@0.0.1536.824" timestamp="1576663075971" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576620100400" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576536303913">
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576684952369">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-536.-1080.1920.1040@0.0.1536.824" timestamp="1576516603409" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1576536303913" />
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1576684952369" />
   </component>
 </project>

@@ -4,16 +4,22 @@
 {% block styles %}
 {{ super() }}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 
 
 {% block body %}
-    <h1>Add a new task</h1>
+    <div class="container">
+        <h1>Add a new task</h1>
 
-    <form action="/add_task_to_db" method="post">
-        <textarea name="task_text" class="form-control" rows="2" placeholder="Max 200 characters"></textarea>
-        <button type="submit" class="btn btn-primary">Add</button>
-    </form>
+        <form action="/add_task_to_db" method="post">
+            <div class="form-group">
+                <textarea name="task_text" class="form-control" rows="2" placeholder="Max 255 characters"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+
 {% endblock %}

@@ -24,7 +24,6 @@ class Task(db.Model):
 @app.route("/", methods=["GET", "POST"])
 def index():
     # Get all tasks from the database.
-    #all_tasks = Task.query.all()
     todo_tasks = Task.query.filter_by(is_done=False)
     completed_tasks = Task.query.filter_by(is_done=True)
     return render_template("index.html", todo_tasks=todo_tasks, completed_tasks=completed_tasks)

@@ -1,13 +1,10 @@
 {% extends "layout.html" %}
 
 {% block body %}
-    <div class="task_manager container justify-content-center">
-        <div class="row">
-            <div class="col-sm-8">
+    <div class="task_manager container">
+        <div class="row no-gutters">
+            <div class="col">
                <h1>To do platform</h1>
-            </div>
-            <div class="col-sm-4">
-                <div style="padding:1em 0;"> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=small&timezone=Europe%2FBrussels" width="100%" height="90" frameborder="0" ></iframe> </div>
             </div>
         </div>
 
@@ -28,18 +25,18 @@
                                 <th>#</th>
                                 <th>Uncompleted task</th>
                                 <th>Date created</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                                <th>State</th>
+                                <th class="text-center">Edit</th>
+                                <th class="text-center">Delete</th>
+                                <th class="text-center">State</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for task in todo_tasks %}
                             <tr>
                                 <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
-                                <td><a href="/edit_form?id={{task.id}}" id="edit_{{task.id}}"><i class="far fa-edit fa-2x"></i></a></td>
-                                <td><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="far fa-trash-alt fa-2x"></i></a></td>
-                                <td><a href="/toggle_state?id={{task.id}}" id="state_{{task.id}}"><i class="far fa-square fa-2x"></i></a></td>
+                                <td class="text-center"><a href="/edit_form?id={{task.id}}" id="edit_{{task.id}}"><i class="far fa-edit fa-2x"></i></a></td>
+                                <td class="text-center"><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="far fa-trash-alt fa-2x"></i></a></td>
+                                <td class="text-center"><a href="/toggle_state?id={{task.id}}" id="state_{{task.id}}"><i class="far fa-square fa-2x"></i></a></td>
                             </tr>
                             {% endfor %}
 
@@ -48,16 +45,16 @@
                                 <th>#</th>
                                 <th>Completed task</th>
                                 <th>Date created</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                                <th>State</th>
+                                <th class="text-center">Edit</th>
+                                <th class="text-center">Delete</th>
+                                <th class="text-center">State</th>
                             </tr>
                             {% for task in completed_tasks %}
                             <tr>
                                 <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
-                                <td><a href="/edit_form?id={{task.id}}" id="edit_{{task.id}}"><i class="far fa-edit fa-2x"></i></a></td>
-                                <td><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="far fa-trash-alt fa-2x"></i></a></td>
-                                <td><a href="/toggle_state?id={{task.id}}" id="status_{{task.id}}"><i class="far fa-check-square fa-2x"></i></a></td>
+                                <td class="text-center"><a href="/edit_form?id={{task.id}}" id="edit_{{task.id}}"><i class="far fa-edit fa-2x"></i></a></td>
+                                <td class="text-center"><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="far fa-trash-alt fa-2x"></i></a></td>
+                                <td class="text-center"><a href="/toggle_state?id={{task.id}}" id="status_{{task.id}}"><i class="far fa-check-square fa-2x"></i></a></td>
                             </tr>
                             {% endfor %}
                         </tbody>

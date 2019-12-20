@@ -7,7 +7,7 @@
         <form action="{{url_for('edit_task')}}" method="post">
             <div class="form-group">
                 <input type="hidden" name="task_id" value="{{ task.id }}">
-                <textarea name="task_text" class="form-control" rows="2" autofocus>{{ task.text }}</textarea>
+                <textarea name="task_text" class="form-control" rows="2" autofocus required>{{ task.text }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary my_button">Edit</button>
         </form>

@@ -15,6 +15,7 @@ class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(255), nullable=False)
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    is_done = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return f"Task('{self.id}', '{self.text}')"
@@ -23,8 +24,10 @@ class Task(db.Model):
 @app.route("/", methods=["GET", "POST"])
 def index():
     # Get all tasks from the database.
-    all_tasks = Task.query.all()
-    return render_template("index.html", all_tasks=all_tasks)
+    #all_tasks = Task.query.all()
+    todo_tasks = Task.query.filter_by(is_done=False)
+    completed_tasks = Task.query.filter_by(is_done=True)
+    return render_template("index.html", todo_tasks=todo_tasks, completed_tasks=completed_tasks)
 
 
 @app.route("/add_form")
@@ -38,7 +41,6 @@ def add_task():
     new_task = Task(text=task_text)
     db.session.add(new_task)
     db.session.commit()
-    print(new_task)
 
     return redirect(url_for('index'))
 
@@ -67,6 +69,17 @@ def delete_task():
     task_id = request.args.get('id')
     Task.query.filter_by(id=task_id).delete()
     db.session.commit()
+    return redirect(url_for('index'))
+
+
+@app.route("/toggle_state")
+def toggle_state():
+    task_id = request.args.get('id')
+
+    task = Task.query.filter_by(id=task_id).first()
+    task.is_done = not task.is_done
+    db.session.commit()
+
     return redirect(url_for('index'))
 
 

@@ -17,53 +17,49 @@
         <div class="row">
             <div class="col">
                 <div class="table-responsive">
+                    <!-- Table with tasks -->
                     <table class="table">
                         <thead>
-                            <tr>
+                            <!-- Uncompleted tasks -->
+                            <tr class="info">
                                 <th>#</th>
-                                <th>Task</th>
+                                <th>Uncompleted task</th>
                                 <th>Date created</th>
-                                <th>Status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
+                                <th>State</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for task in todo_tasks %}
                             <tr>
                                 <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
-                                <td><a href="/toggle_state?id={{task.id}}" id="state_{{task.id}}"><i class="fa fa-square fa-2x"></i></a></td>
-                                <td><a href="/edit_form?id={{task.id}}" id="edit_{{task.id}}"><i class="fa fa-edit fa-2x"></i></a></td>
-                                <td><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="fa fa-trash fa-2x"></i></a></td>
+                                <td><a href="/edit_form?id={{task.id}}" id="edit_{{task.id}}"><i class="far fa-edit fa-2x"></i></a></td>
+                                <td><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="far fa-trash-alt fa-2x"></i></a></td>
+                                <td><a href="/toggle_state?id={{task.id}}" id="state_{{task.id}}"><i class="far fa-square fa-2x"></i></a></td>
+                            </tr>
+                            {% endfor %}
+
+                            <!-- Completed tasks -->
+                            <tr class="success">
+                                <th>#</th>
+                                <th>Completed task</th>
+                                <th>Date created</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                                <th>State</th>
+                            </tr>
+                            {% for task in completed_tasks %}
+                            <tr>
+                                <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
+                                <td><a href="/edit_form?id={{task.id}}" id="edit_{{task.id}}"><i class="far fa-edit fa-2x"></i></a></td>
+                                <td><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="far fa-trash-alt fa-2x"></i></a></td>
+                                <td><a href="/toggle_state?id={{task.id}}" id="status_{{task.id}}"><i class="far fa-check-square fa-2x"></i></a></td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
 
-                    <!-- Table with complete tasks -->
-                    <h3>Completed tasks</h3>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Task</th>
-                                <th>Date created</th>
-                                <th>Status</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for task in completed_tasks %}
-                            <tr>
-                                <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
-                                <td><a href="/toggle_state?id={{task.id}}" id="status_{{task.id}}"><i class="fa fa-check-square fa-2x"></i></a></td>
-                                <td><a href="/edit_form?id={{task.id}}" id="edit_{{task.id}}"><i class="fa fa-edit fa-2x"></i></a></td>
-                                <td><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="fa fa-trash fa-2x"></i></a></td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>

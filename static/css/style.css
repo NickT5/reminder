@@ -13,5 +13,6 @@ body{
     padding-bottom: 4%;
 }
 .my_button{
-    width: 100%
+    width: 100%;
+    margin-bottom: 5px;
 }

@@ -11,10 +11,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
 
+def custom_datetime(now):
+    dt = datetime(now.date().year, now.date().month, now.date().day, now.time().hour, now.time().minute, now.time().second)
+    return dt
+
+
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(255), nullable=False)
-    date_created = db.Column(db.DateTime, nullable=False, default=datetime.today().replace(microsecond=0))
+    date_created = db.Column(db.DateTime, nullable=False)
     is_done = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
@@ -37,7 +42,8 @@ def add_form():
 @app.route("/add_task", methods=["POST"])
 def add_task():
     task_text = request.form.get('task_text')
-    new_task = Task(text=task_text)
+    datetime_created = custom_datetime(datetime.now())
+    new_task = Task(text=task_text, date_created=datetime_created)
     db.session.add(new_task)
     db.session.commit()
 

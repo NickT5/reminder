@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c2b682b-9dbc-47a5-bbda-d9af5d8adfda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +31,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -63,16 +67,16 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="54" key="SettingsEditor/0.0.1536.824/-536.-1080.1920.1040@0.0.1536.824" timestamp="1576521729616" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1576780335327">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1576935460812">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-536.-1080.1920.1040@-536.-1080.1920.1040" timestamp="1576660237475" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-536.-1080.1920.1040@0.0.1536.824" timestamp="1576780335327" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-536.-1080.1920.1040@0.0.1536.824" timestamp="1576935460812" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576620100400" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576684952369">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576939472306">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-536.-1080.1920.1040@0.0.1536.824" timestamp="1576516603409" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-536.-1080.1920.1040@0.0.1536.824" timestamp="1576939472306" />
     <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1576684952369" />
   </component>
 </project>

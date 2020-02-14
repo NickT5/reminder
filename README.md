@@ -1,28 +1,32 @@
-# To do platform
-Creating a To do platform webapplication using Flask ( Python for the web), HTML, CSS, Bootstrap, SQL.
+# To Do Platform
+This project is a To Do web application build with Flask, SQL, HTML, CSS and Bootstrap. Flask is a (micro) Python web framework. 
+The application is deployed on Heroku which is a platform to build, run, and operate applications entirely in the cloud.
+Note: it takes a while to spin up the application. Click [here](https://todo-platform.herokuapp.com/) to check it out.
 
-## Install instructions
+## How to run the app locally 
+
+### 1. Install the dependies
 Install the necessary dependies by using *requirements.txt* .
 ```bash
-$pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-## Create a database
+### 2. Create a database
 Run the following commands in the terminal.
 ```bash
-$python
-$from app import db
-$db.create_all()
+python
+from app import db
+db.create_all()
 ```
 To delete the database you can call the drop_all() function.
 ```bash
-$python
-$from app import db
-$db.drop_all()
+python
+from app import db
+db.drop_all()
 ```
 
-## Run the web application
+### 3. Run the web application
 ```bash
-$flask run
+flask run
 ```
 This will start up the server and it will tell where to view the application, e.g. *127.0.0.1:5000*

@@ -1,12 +1,13 @@
 # To Do Platform
 This project is a To Do web application build with Flask, SQL, HTML, CSS and Bootstrap. Flask is a (micro) Python web framework. 
 The application is deployed on Heroku which is a platform to build, run, and operate applications entirely in the cloud.
+
 Note: it takes a while to spin up the application. Click [here](https://todo-platform.herokuapp.com/) to check it out.
 
 ## How to run the app locally 
 
-### 1. Install the dependies
-Install the necessary dependies by using *requirements.txt* .
+### 1. Install the dependencies
+Install the necessary dependencies by using *requirements.txt* .
 ```bash
 pip install -r requirements.txt
 ```

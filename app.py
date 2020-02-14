@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/todo-platform'
 # driver://user:password@host/database-name
-if environ.get('LOCAL'):
+if environ.get('MODE') == 'development':
     app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('SQLALCHEMY_DATABASE_URI')
     """
     To use environ.get('SQLALCHEMY_DATABASE_URI'), you have to first set the env variable. On Windows, use set.
@@ -29,7 +29,7 @@ if environ.get('LOCAL'):
       > db.session.commit()
     """
 else:
-    pass  # Add postgresql here.
+    app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL')  # From Heroku Postgresql database.
 
 Bootstrap(app)
 db = SQLAlchemy(app)

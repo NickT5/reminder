@@ -2,13 +2,37 @@ from flask import Flask, render_template, request, url_for, redirect
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from os import environ
 
 # Configure app
 app = Flask(__name__)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'    # Sqlite database.
+# For a sqlite database, you need to have a database.db file in your project root directory.
+
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/todo-platform'
+# driver://user:password@host/database-name
+if environ.get('LOCAL'):
+    app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('SQLALCHEMY_DATABASE_URI')
+    """
+    To use environ.get('SQLALCHEMY_DATABASE_URI'), you have to first set the env variable. On Windows, use set.
+    "set KEY=value". See settings.cfg file.
+    For a MySQL database, we first need to install a package (pip install mysqlclient). 
+    Next, we need to create a database. I used xampp phpMyAdmin to do this. 
+    Next, we need to create the database table. We have two options where the latter is the easiest:
+    - Create the table using phpMyAdmin with it's columns. This has to match the code. Note: don't forget A_I checkbox
+     for auto increment the id column.
+    - Open up a terminal and run:
+      > python
+      > from app import db
+      > db.create_all()
+      > db.session.commit()
+    """
+else:
+    pass  # Add postgresql here.
+
 Bootstrap(app)
 db = SQLAlchemy(app)
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
 
 def custom_datetime(now):

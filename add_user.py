@@ -1,5 +1,5 @@
 from app import db, bcrypt
-from app import User
+from app.models import User
 from getpass import getpass
 
 

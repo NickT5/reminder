@@ -67,8 +67,12 @@ def add_form():
 @login_required
 def add_task():
     task_text = request.form.get('task_text')
+    deadline = request.form.get('deadline')
     datetime_created = custom_datetime(datetime.now())
-    new_task = Task(text=task_text, date_created=datetime_created)
+    print(task_text)
+    print(deadline)
+    print(datetime_created)
+    new_task = Task(text=task_text, deadline=deadline, date_created=datetime_created)
     db.session.add(new_task)
     db.session.commit()
 
@@ -88,9 +92,11 @@ def edit_form():
 def edit_task():
     task_id = request.form.get('task_id')
     task_text = request.form.get('task_text')
+    deadline = request.form.get('deadline')
 
     task = Task.query.filter_by(id=task_id).first()
     task.text = task_text
+    task.deadline = deadline
     db.session.commit()
 
     return redirect(url_for('index'))

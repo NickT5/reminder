@@ -7,18 +7,18 @@
         <form action="/add_task" method="post">
             <div class="form-group">
                 <textarea name="task_text" class="form-control" rows="2" placeholder="Max 255 characters" autofocus required></textarea>
-
-                <div class="form-group">
-                    <label class="control-label">Deadline</label>
-                    <div class='input-group date' id='datetimepicker1'>
-                         <input type='text' class="form-control" />
-                         <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                         </span>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="form-group">
+                <label class="control-label">Deadline</label>
+                <div class='input-group date' id='datetimepicker1'>
+                     <input name="deadline" type='text' class="form-control" />
+                     <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                     </span>
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-primary my_button">Add</button>
         </form>
     </div>

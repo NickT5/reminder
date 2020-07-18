@@ -25,6 +25,7 @@
                                 <th>#</th>
                                 <th>Uncompleted task</th>
                                 <th>Date created</th>
+                                <th>Deadline</th>
                                 <th class="text-center">Edit</th>
                                 <th class="text-center">Delete</th>
                                 <th class="text-center">State</th>
@@ -33,7 +34,10 @@
                         <tbody>
                             {% for task in todo_tasks %}
                             <tr>
-                                <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
+                                <td>{{task.id}}</td>
+                                <td>{{task.text}}</td>
+                                <td>{{task.date_created}}</td>
+                                <td>{{task.deadline}}</td>
                                 <td class="text-center"><a href="/edit_form?id={{task.id}}" id="edit_{{task.id}}"><i class="far fa-edit fa-2x"></i></a></td>
                                 <td class="text-center"><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="far fa-trash-alt fa-2x"></i></a></td>
                                 <td class="text-center"><a href="/toggle_state?id={{task.id}}" id="state_{{task.id}}"><i class="far fa-square fa-2x"></i></a></td>
@@ -45,13 +49,17 @@
                                 <th>#</th>
                                 <th>Completed task</th>
                                 <th>Date created</th>
+                                <th>Deadline</th>
                                 <th class="text-center">Edit</th>
                                 <th class="text-center">Delete</th>
                                 <th class="text-center">State</th>
                             </tr>
                             {% for task in completed_tasks %}
                             <tr>
-                                <td>{{task.id}}</td><td>{{task.text}}</td><td>{{task.date_created}}</td>
+                                <td>{{task.id}}</td>
+                                <td>{{task.text}}</td>
+                                <td>{{task.date_created}}</td>
+                                <td>{{task.deadline}}</td>
                                 <td class="text-center"><a href="/edit_form?id={{task.id}}" id="edit_{{task.id}}"><i class="far fa-edit fa-2x"></i></a></td>
                                 <td class="text-center"><a href="/delete_task?id={{task.id}}" id="del_{{task.id}}"><i class="far fa-trash-alt fa-2x"></i></a></td>
                                 <td class="text-center"><a href="/toggle_state?id={{task.id}}" id="status_{{task.id}}"><i class="far fa-check-square fa-2x"></i></a></td>

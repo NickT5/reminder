@@ -16,6 +16,7 @@ class Task(db.Model):
     """
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(255), nullable=False)
+    deadline = db.Column(db.String(50), nullable=True)
     date_created = db.Column(db.DateTime, nullable=False)
     is_done = db.Column(db.Boolean, default=False)
 

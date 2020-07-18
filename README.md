@@ -28,6 +28,6 @@ db.drop_all()
 
 ### 3. Run the web application
 ```bash
-flask run
+python run.py
 ```
 This will start up the server and it will tell where to view the application, e.g. *127.0.0.1:5000*

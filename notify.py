@@ -14,6 +14,10 @@ class Notify:
         self.EMAIL_USER = environ.get("EMAIL_USER")
         self.EMAIL_PASSWORD = environ.get("EMAIL_PASSWORD")
 
+        if self.EMAIL_USER is None or self.EMAIL_PASSWORD is None:
+            print("Email user and password env variables are not set. Exiting...")
+            exit()
+
     def _build_email(self):
         """
         Build up the email (subject and body) based on the uncompleted tasks.
@@ -26,14 +30,17 @@ class Notify:
         """
         Login to a SMTP server, build up the email and send the email.
         """
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as client:
-            # login to smtp server
-            client.login(self.EMAIL_USER, self.EMAIL_PASSWORD)
+        if len(self.tasks) <= 0:
+            print("There are no uncompleted tasks at this moment.")
+        else:
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as client:
+                # login to smtp server
+                client.login(self.EMAIL_USER, self.EMAIL_PASSWORD)
 
-            email = self._build_email()
+                email = self._build_email()
 
-            # send email
-            client.sendmail(from_addr=self.EMAIL_USER, to_addrs=self.EMAIL_USER, msg=email)
+                # send email
+                client.sendmail(from_addr=self.EMAIL_USER, to_addrs=self.EMAIL_USER, msg=email)
 
 
 notifier = Notify()

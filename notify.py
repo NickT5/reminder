@@ -1,3 +1,5 @@
+#!/bin/bash
+
 import smtplib
 from os import environ
 from app.models import Task

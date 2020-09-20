@@ -1,5 +1,5 @@
 # RMNDR
-RMNDR is an application to remind me what tasks I have to do. The user (me) can add, edit, delete and change the status of 
+RMNDR is an application to remind me what tasks I have to do. The user can add, edit, delete and change the status of 
 the tasks which are stored in a database. A python script sends the user an email every day with all the uncompleted tasks.
 Authentication is also implemented. The web application is build with Flask, SQL, HTML, CSS, Bootstrap and runs on a Raspberry Pi.
  
